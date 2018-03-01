@@ -1,3 +1,7 @@
+- name: docker
+  yum:
+    name: docker
+
 - name: docker config
   lineinfile:
     path: /etc/sysconfig/docker
