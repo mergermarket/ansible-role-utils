@@ -20,7 +20,9 @@ install:
   # Install ansible
   - pip install ansible
   # Install molecule
-  - pip install molecule
+  - pip install molecule docker
+  # Install Docker driver
+  - pip install docker
   # Check ansible version
   - ansible --version
   # Create ansible.cfg with correct roles_path
