@@ -1,6 +1,16 @@
-- name: docker
-  yum:
-    name: docker
+---
+- name: Install Packages
+  package:
+    name:
+      - python
+      - python-setuptools
+      - docker
+    state: latest
+
+- name: Install Pip
+  easy_install:
+    name: pip
+    state: latest
 
 - name: docker config
   lineinfile:
@@ -8,7 +18,7 @@
     line: 'OPTIONS="--log-driver=json-file --log-opt max-size=50m --log-opt max-file=1 --default-ulimit nofile=4096:65535 --bip=172.17.42.1/16 --mtu=9001"'
     regexp: '^OPTIONS'
     state: present
-    
+
 - name: dangling volumes cron
   copy:
     src: docker-gc-dangling-volumes.sh
