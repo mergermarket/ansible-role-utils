@@ -1,4 +1,13 @@
 ---
+- name: Enable amazon-linux-extras packages
+  command: "amazon-linux-extras enable {{ item }}"
+  args:
+    creates: /etc/yum.repos.d/amzn2-extras.repo
+  become: true
+  when: ansible_distribution == "Amazon"
+  with_items:
+    - docker
+
 - name: Install Packages
   package:
     name:
@@ -11,6 +20,20 @@
   easy_install:
     name: pip
     state: latest
+  when: ansible_distribution == 'CentOS'
+
+- name: Download and Install Pip
+  block:
+    - name: Download Pip
+      get_url:
+        url: https://bootstrap.pypa.io/get-pip.py
+        dest: /tmp/get-pip.py
+    - name: Install Pip
+      command: "python /tmp/get-pip.py"
+      args:
+        creates: /usr/bin/pip
+  become: true
+  when: ansible_distribution == "Amazon"
 
 - name: docker config
   lineinfile:

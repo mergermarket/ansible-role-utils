@@ -9,6 +9,9 @@ platforms:
   - name: centos_image
     image: centos:7
     privileged: true
+  - name: amazon_linux
+    image: amazonlinux:latest
+    privileged: true
 provisioner:
   name: ansible
   log: true
