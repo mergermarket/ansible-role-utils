@@ -1,12 +1,4 @@
 ---
-- name: Enable amazon-linux-extras packages
-  command: "amazon-linux-extras enable {{ item }}"
-  args:
-    creates: /etc/yum.repos.d/amzn2-extras.repo
-  become: true
-  when: ansible_distribution == "Amazon"
-  with_items:
-    - docker
 
 - name: Install Packages
   package:
