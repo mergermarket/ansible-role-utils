@@ -5,8 +5,19 @@
     name:
       - python
       - python-setuptools
+    state: latest
+
+- name: Install Docker with Yum
+  package:
+    name:
       - docker
     state: latest
+  when: ansible_kernel is not search("amzn2")
+
+- name: Install Docker with amazon-linux-extras
+  shell: "amazon-linux-extras install docker"
+  become: yes
+  when: ansible_kernel is search("amzn2")
 
 - name: Install Pip
   easy_install:
