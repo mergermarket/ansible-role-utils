@@ -15,7 +15,7 @@
   when: ansible_kernel is not search("amzn2")
 
 - name: Install Docker with amazon-linux-extras
-  shell: "amazon-linux-extras install docker"
+  command: "amazon-linux-extras install docker"
   become: yes
   when: ansible_kernel is search("amzn2")
 
