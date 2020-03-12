@@ -3,8 +3,11 @@ dependency:
   name: galaxy
 driver:
   name: docker
-lint:
-  name: yamllint
+lint: |
+  set -e
+  yamllint .
+  ansible-lint -x ANSIBLE0010 .
+  flake8
 platforms:
   - name: centos_image
     image: centos:7
@@ -12,15 +15,13 @@ platforms:
 provisioner:
   name: ansible
   log: true
-  lint:
-    name: ansible-lint
-    options:
-      x: ["ANSIBLE0010"]
+  # lint:
+  #   name: ansible-lint
+  #   options:
+  #     x: ["ANSIBLE0010"]
 scenario:
   name: default
 verifier:
   name: testinfra
   options:
     hosts: 'docker://centos_image'
-  lint:
-    name: flake8

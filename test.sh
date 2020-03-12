@@ -1,8 +1,11 @@
 #!/bin/bash
 
+role_name=${PWD##*/}
+
 docker run --rm -it \
-    -v $(pwd):/ansible-role-docker:ro \
+    -v $(pwd):/$role_name:ro \
     -v /var/run/docker.sock:/var/run/docker.sock \
-    -w /ansible-role-docker \
-        retr0h/molecule:latest \
-            sudo molecule test
+    -w /$role_name \
+        quay.io/ansible/molecule:3.0.2 \
+            /bin/sh -c \
+            "pip3 install testinfra; molecule test"
