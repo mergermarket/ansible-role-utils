@@ -19,6 +19,12 @@
   become: yes
   when: ansible_kernel is search("amzn2")
 
+- name: Update with latest packages
+  yum:
+    name: "*"
+    state: latest
+  when: ansible_kernel is search("amzn2")
+
 - name: Install Pip
   easy_install:
     name: pip
