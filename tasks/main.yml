@@ -57,6 +57,12 @@
     dest: /etc/cron.hourly/
     mode: 0755
 
+- name: housekeeping
+  copy:
+    src: docker-gc-dangling-volumes.sh
+    dest: /usr/local/bin
+    mode: 0755
+
 - name: python docker
   pip:
     name: docker
