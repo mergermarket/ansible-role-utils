@@ -11,7 +11,7 @@ addons:
       - python-pip
 
 services:
-  - docker
+  - utils
 
 before_install:
   - sudo apt-get -qq update

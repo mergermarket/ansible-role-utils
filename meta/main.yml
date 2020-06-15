@@ -1,8 +1,8 @@
 ---
 galaxy_info:
-  role_name: docker
+  role_name: utils
   author: Platform Team
-  description: Ansible Role that configures Docker
+  description: Ansible Role that configures Generic Utils
   company: Acuris/Mergermarket
 
   # If the issue tracker for your role is not on github, uncomment the

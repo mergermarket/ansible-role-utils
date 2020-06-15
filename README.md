@@ -1,4 +1,4 @@
-Docker
+Utils
 =========
 
 [![Build Status](https://travis-ci.org/mergermarket/ansible-role-docker.svg?branch=master)](https://travis-ci.org/mergermarket/ansible-role-utils)
