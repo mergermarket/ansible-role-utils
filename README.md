@@ -1,9 +1,9 @@
 Docker
 =========
 
-[![Build Status](https://travis-ci.org/mergermarket/ansible-role-docker.svg?branch=master)](https://travis-ci.org/mergermarket/ansible-role-docker)
+[![Build Status](https://travis-ci.org/mergermarket/ansible-role-docker.svg?branch=master)](https://travis-ci.org/mergermarket/ansible-role-utils)
 
-Installs docker
+Installs generic useful apps
 
 Requirements
 ------------

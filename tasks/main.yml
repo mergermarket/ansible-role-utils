@@ -3,66 +3,7 @@
 - name: Install Packages
   package:
     name:
-      - python
-      - python-setuptools
+      - bind-utils
+      - telnet
+      - nmap
     state: latest
-
-- name: Install Docker with Yum
-  package:
-    name:
-      - docker
-    state: latest
-  when: ansible_kernel is not search("amzn2")
-
-- name: Install Docker with amazon-linux-extras
-  command: "amazon-linux-extras install docker"
-  become: yes
-  when: ansible_kernel is search("amzn2")
-
-- name: Update with latest packages
-  yum:
-    name: "*"
-    state: latest
-  when: ansible_kernel is search("amzn2")
-
-- name: Install Pip
-  easy_install:
-    name: pip
-    state: latest
-  when: ansible_distribution == 'CentOS'
-
-- name: Download and Install Pip
-  block:
-    - name: Download Pip
-      get_url:
-        url: https://bootstrap.pypa.io/get-pip.py
-        dest: /tmp/get-pip.py
-    - name: Install Pip
-      command: "python /tmp/get-pip.py"
-      args:
-        creates: /usr/bin/pip
-  become: true
-  when: ansible_distribution == "Amazon"
-
-- name: docker config
-  lineinfile:
-    path: /etc/sysconfig/docker
-    line: 'OPTIONS="--log-driver=json-file --log-opt max-size=50m --log-opt max-file=1 --default-ulimit nofile=4096:65535 --bip=172.17.42.1/16 --mtu=9001"'
-    regexp: '^OPTIONS'
-    state: present
-
-- name: dangling volumes cron
-  copy:
-    src: docker-gc-dangling-volumes.sh
-    dest: /etc/cron.hourly/
-    mode: 0755
-
-- name: housekeeping
-  copy:
-    src: docker_housekeeping.sh
-    dest: /usr/local/bin
-    mode: 0755
-
-- name: python docker
-  pip:
-    name: docker
