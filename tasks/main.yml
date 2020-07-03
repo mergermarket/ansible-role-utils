@@ -6,4 +6,5 @@
       - bind-utils
       - telnet
       - nmap
+      - awscli
     state: latest
