@@ -7,4 +7,3 @@
       - telnet
       - nmap
       - awscli
-    state: latest
