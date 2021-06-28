@@ -1,7 +1,7 @@
 Utils
 =========
 
-[![Build Status](https://travis-ci.org/mergermarket/ansible-role-docker.svg?branch=master)](https://travis-ci.org/mergermarket/ansible-role-utils)
+[![Build Status](https://travis-ci.com/mergermarket/ansible-role-docker.svg?branch=master)](https://travis-ci.com/mergermarket/ansible-role-utils)
 
 Installs generic useful apps
 

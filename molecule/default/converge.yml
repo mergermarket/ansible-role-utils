@@ -1,5 +1,7 @@
 ---
 - name: Converge
   hosts: all
-  roles:
-    - role: ../../..
+  tasks:
+    - name: "Include Utils"
+      include_role:
+        name: "ansible-role-utils"
