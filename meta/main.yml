@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   role_name: utils
-  author: Platform Team
+  author: mergermarket
   description: Ansible Role that configures Generic Utils
   company: Acuris/Mergermarket
 

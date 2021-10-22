@@ -1,7 +1,7 @@
 Utils
 =========
 
-[![Build Status](https://travis-ci.com/mergermarket/ansible-role-docker.svg?branch=master)](https://travis-ci.com/mergermarket/ansible-role-utils)
+[![Deploy to Ansible Galaxy](https://github.com/mergermarket/ansible-role-utils/actions/workflows/deploy.yml/badge.svg)](https://github.com/mergermarket/ansible-role-utils/actions/workflows/deploy.yml)
 
 Installs generic useful apps
 
