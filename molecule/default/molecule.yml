@@ -10,7 +10,7 @@ lint: |
   flake8
 platforms:
   - name: instance
-    image: amazonlinux:2
+    image: amazonlinux:2023
     pre_build_image: true
 provisioner:
   name: ansible
